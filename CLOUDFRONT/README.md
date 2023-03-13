@@ -12,10 +12,10 @@ Should have the following installed at your system:
 ### Steps
 ---
 1. Run `pip3 freeze` to generate required packages at your environment.
-2. Create a .env file with the following key's:
+2. Create a .env file with the following key:=value pairs:
 
-    - CLOUDFRONT_ID= <CloudFront-Distribution-ID>
-    - INVALIDATION_PATH= <Path-For-S3-Bucket-Object>
+    - CLOUDFRONT_ID
+    - INVALIDATION_PATH
 
 3. Run python script using `python main.py`
 
