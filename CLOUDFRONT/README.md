@@ -7,7 +7,8 @@ Should have the following installed at your system:
 
 - Python3 version: 3.10.10
 - Pip3
-
+- `aws-cli` : 2.6.0
+- programatic access credentials with a default profile set.
 
 ### Steps
 ---
@@ -18,5 +19,3 @@ Should have the following installed at your system:
     - INVALIDATION_PATH
 
 3. Run python script using `python main.py`
-
-
