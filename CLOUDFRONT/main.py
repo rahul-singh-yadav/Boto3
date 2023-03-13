@@ -20,7 +20,7 @@ path = os.environ.get('INVALIDATION_PATH')
 
 # Save responses
 try:
-    response = client.create_invalidation(
+    response_dict = client.create_invalidation(
     DistributionId = id,
         InvalidationBatch = {
             'Paths': {
@@ -32,12 +32,19 @@ try:
     )
 
     # Output response from cloudfront
-    print(response)
+    print(response_dict)
 
+    # Get current working directory
+    pwd = os.getcwd()
+
+    # Filepath to which data would be written.
+    file_path = os.path.join(pwd, 'responses.txt')
+
+    # Save 'response' to a file, if the file doesn't exist, it creates it, appends data to it for future use.
+    with open(file_path, 'a') as file:
+        data = file.write(str(response_dict) + '\n')
+        # file.close()
+        
 except client.exceptions.InvalidationBatchAlreadyExists as e:
     # Throws exception error message at stdout
     print(f"Invalidation requested already exist, try a unique caller reference: {e}")
-
-# except exception as e1:
-#     # Throws any other exceptions occured at runtime.
-#     print(f"An error occured: {e1}")
