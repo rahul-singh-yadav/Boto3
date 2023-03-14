@@ -39,3 +39,13 @@ Should have the following installed at your system:
 6. Test using event pattern using `s3-put` template.
 
 
+### Resources & Documentation
+---
+Here are some useful documentation resources to get up to speed:
+
+- https://docs.aws.amazon.com/AmazonS3/latest/userguide/notification-content-structure.html
+- https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/cloudfront/client/create_invalidation.html
+- https://docs.aws.amazon.com/lambda/latest/dg/lambda-python.html
+
+
+
