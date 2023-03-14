@@ -21,7 +21,7 @@ path = os.environ.get('INVALIDATION_PATH')
 # Save responses
 try:
     response_dict = client.create_invalidation(
-    DistributionId = id,
+        DistributionId = id,
         InvalidationBatch = {
             'Paths': {
                 'Quantity': 1, 
