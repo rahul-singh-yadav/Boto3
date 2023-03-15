@@ -1,5 +1,6 @@
 import os
 import boto3
+import botocore.exceptions
 from datetime import datetime
 
 # Fetch current datetime.
@@ -59,9 +60,9 @@ try:
             # Output response from cloudfront
             print(response_dict)
 
-        except client.exceptions.InvalidationBatchAlreadyExists as e:
+        except botocore.exceptions.ClientError as e:
             # Throw exception error message at stdout
-            print(f"Invalidation requested already exist, try a unique caller reference: {e}")
+            print(f"An exception was raise with message: {e}")
 
         except Exception as e1:
             raise e1
