@@ -41,11 +41,13 @@ Should have the following installed at your system:
 
 ### Resources & Documentation
 ---
-Here are some useful documentation resources to get up to speed:
+Here are some useful documentation resources to get up to speed.
 
 - https://docs.aws.amazon.com/AmazonS3/latest/userguide/notification-content-structure.html
 - https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/cloudfront/client/create_invalidation.html
 - https://docs.aws.amazon.com/lambda/latest/dg/lambda-python.html
+- https://docs.aws.amazon.com/lambda/latest/dg/services-codepipeline.html
+- https://boto3.amazonaws.com/v1/documentation/api/latest/guide/error-handling.html
 
 
 
