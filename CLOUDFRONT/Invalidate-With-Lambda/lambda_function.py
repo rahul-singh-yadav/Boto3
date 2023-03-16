@@ -1,4 +1,5 @@
 import os
+import time
 import boto3
 import botocore.exceptions
 from datetime import datetime
@@ -8,64 +9,82 @@ current = datetime.now()
 
 # Fetch DistributionId from environment variables.
 id = os.environ['CLOUDFRONT_DISTRIBUTION_ID']
+path = os.environ['S3_OBJECT_INVALIDATION_KEY']
 
-try:
 
-    def lambda_handler(event, context):
+def lambda_handler(event, context):
 
-        ## Initialize empty list for object keys
-        # Uncomment when dealing with multiple objects at the bucket folder. 
-        # object_keys = []
-        
-        # For each 'Record' (dictionary) event of type S3, fetch S3 bucket object's -> key
-        for record in event['Records']:
+    """event: codepipeline job
+       context: runtime environment for lambda function, i.e., python 3.9
+    """
 
-            s3 = record.get('s3')
-            s3_object = s3.get('object')
-            object_key = s3_object.get('key')
-            
-            # Append object key to list
-            path = f"/{object_key}"
-        
-        # # Create invalidation batch ...
-        # # Uncomment when dealing with multiple objects at the bucket folder.
-        # paths = {
-        #     'Quantity': len(object_keys),
-        #     'Items': [f"/{key}" for key in object_keys]
-        # }
-        
-        # Print paths to stdout
-        print(path)
-        
-        # Use client
-        client = boto3.client('cloudfront')
+    # Set path
+    print(path)
 
-        try:
-            # Create invalidation request
-            response_dict = client.create_invalidation(
+    # Use client
+    client = boto3.client('cloudfront')
 
-                DistributionId = id,
-                InvalidationBatch = {
-                
-                    'Paths': {
-                        'Quantity': 1,
-                        'Items': [path]
+    try:
+        # Create Invalidation Request
+        response_dict = client.create_invalidation(
 
-                    },
-                    'CallerReference': str(current)
+            DistributionId = id,
+            InvalidationBatch = {
 
-                }
-            )
+                'Paths': {
+                    'Quantity': 1,
+                    'Items': [path]
 
-            # Output response from cloudfront
-            print(response_dict)
+                },
+                'CallerReference': str(current)
 
-        except botocore.exceptions.ClientError as e:
-            # Throw exception error message at stdout
-            print(f"An exception was raise with message: {e}")
+            }
+        )
 
-        except Exception as e1:
-            raise e1
+        # Sleep for 30 seconds.
+        time.sleep(30)
 
-except Exception as e2:
-    raise e2
+        print(response_dict)
+
+        # Fetch current invalidation status
+        get_response_dict = client.get_invalidation(
+
+            DistributionId = id,
+            Id = response_dict.get('Invalidation').get('Id')
+
+        )
+
+        # Confirm invalidation
+        print(f"Invaldation completed successfully: {get_response_dict}")
+
+        # Creates client for codepipeline.
+        code_pipeline = boto3.client('codepipeline')
+
+        # Get the job id of current codepipeline action.
+        job_id = event.get('CodePipeline.job').get('id')
+
+        # Use code_pipeline client to call put_job_success_result()
+        code_pipeline.put_job_success_result(jobId = job_id)
+
+    except (botocore.exceptions.ClientError, Exception) as e:
+        print(f"An exception was raised with following message: {e}")
+
+        # Create client
+        code_pipeline = boto3.client('codepipeline')
+
+        # Get job id
+        job_id = event.get('CodePipeline.job').get('id')
+
+        # Instruct Codepipeline to mark the `action` as failure.
+        code_pipeline.put_job_failure_result(
+            jobId = job_id,
+            failureDetails = {
+                'type': 'JobFailed',
+                'message': str(e),
+                'externalExecutionId': context.aws_request_id # unique identifier for each new lambda function invocation.
+            }
+        )
+
+    finally:
+        # Skip
+        pass
