@@ -41,9 +41,6 @@ def lambda_handler(event, context):
             }
         )
 
-        # Sleep for 30 seconds.
-        time.sleep(30)
-
         print(response_dict)
 
         # Fetch current invalidation status
@@ -62,6 +59,8 @@ def lambda_handler(event, context):
 
         # Get the job id of current codepipeline action.
         job_id = event.get('CodePipeline.job').get('id')
+
+        print(f"Current codepipeline in execution with id: {job_id}")        
 
         # Use code_pipeline client to call put_job_success_result()
         code_pipeline.put_job_success_result(jobId = job_id)
