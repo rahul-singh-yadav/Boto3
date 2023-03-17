@@ -30,7 +30,7 @@ def lambda_handler(event, context):
         # Set path to 'None' as default.
         path = None
         
-        # 
+        # Check for correct object keys.
         if data.get('UserParameters') == s3_object_createpataa:
             path = s3_object_createpataa
         elif data.get('UserParameters') == s3_object_two_stage:
