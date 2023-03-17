@@ -1,5 +1,5 @@
 import os
-import time
+import json
 import boto3
 import botocore.exceptions
 from datetime import datetime
@@ -52,18 +52,25 @@ def lambda_handler(event, context):
         )
 
         # Confirm invalidation
-        print(f"Invaldation completed successfully: {get_response_dict}")
+        print(f"✅Invalidation completed successfully: {get_response_dict}")
 
         # Creates client for codepipeline.
         code_pipeline = boto3.client('codepipeline')
 
-        # Get the job id of current codepipeline action.
+        #Get the job id of current codepipeline action.
         job_id = event.get('CodePipeline.job').get('id')
-
-        print(f"Current codepipeline in execution with id: {job_id}")        
+        
+        # Print jobId
+        print(f"🆔 Current codepipeline in execution with id: {job_id}")  
 
         # Use code_pipeline client to call put_job_success_result()
         code_pipeline.put_job_success_result(jobId = job_id)
+        
+        # Return success message.
+        return {
+            'statusCode': 200,
+            'body': json.dumps({'message': 'Success ✨'})
+        }
 
     except (botocore.exceptions.ClientError, Exception) as e:
         print(f"An exception was raised with following message: {e}")
@@ -83,7 +90,9 @@ def lambda_handler(event, context):
                 'externalExecutionId': context.aws_request_id # unique identifier for each new lambda function invocation.
             }
         )
-
-    finally:
-        # Skip
-        pass
+        
+        # Return failure message
+        return {
+            'statusCode': 400,
+            'body': json.dumps({'message': 'Error ❌'})
+        }
