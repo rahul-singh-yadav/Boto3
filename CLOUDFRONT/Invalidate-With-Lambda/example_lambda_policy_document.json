@@ -1,0 +1,30 @@
+{
+    "Version": "2012-10-17",
+    "Statement": [
+        {
+            "Sid": "Cloudwatch",
+            "Effect": "Allow",
+            "Action": [
+                "logs:CreateLogStream",
+                "cloudfront:GetInvalidation",
+                "logs:CreateLogGroup",
+                "logs:PutLogEvents",
+                "cloudfront:CreateInvalidation"
+            ],
+            "Resource": [
+                "arn:aws:logs:ap-south-1:<AWS_ACCOUNT_ID>:log-group:*:log-stream:*",
+                "arn:aws:logs:ap-south-1:<AWS_ACCOUNT_ID>:log-group:*",
+                "arn:aws:cloudfront::<AWS_ACCOUNT_ID>:distribution/<CF_DISTRIBUTION_ID>"
+            ]
+        },
+        {
+            "Sid": "CodePipeline",
+            "Effect": "Allow",
+            "Action": [
+                "codepipeline:PutJobFailureResult",
+                "codepipeline:PutJobSuccessResult"
+            ],
+            "Resource": "*"
+        }
+    ]
+}
