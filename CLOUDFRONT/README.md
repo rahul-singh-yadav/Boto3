@@ -36,9 +36,10 @@ Should have the following installed at your system:
     - Cloudfront
         - `cloudfront:GetInvalidation`
         - `cloudfront:CreateInvalidation`
-
-    Once you have the role and its policy document, Add the *execution-role` at,
-    Function > invalidate_s3_objects > Configuration > Permissions > Edit > *select_your_role_name*
+    <br>
+    Once you have the role and its policy document, add the `execution-role` at,
+    
+    - Function > invalidate_s3_objects > Configuration > Permissions > Edit > *select_your_role_name*
 
 3. Add environment variable at : Function > invalidate_s3_objects > Configuration > Environment variables
 4. Package your source code as `zip` file:
