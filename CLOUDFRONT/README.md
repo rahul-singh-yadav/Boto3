@@ -1,12 +1,15 @@
-## How to use this script
+## Invalidate S3 Bucket Objects With Lamdba Function
 ---
 
-**Pre-requisites**:
+./four-stage-examlple.png
+
+## Pre-requisites
+---
 
 Should have the following installed at your system:
 
 - Python3 version: 3.10.10
-- Pip3
+- Pip3 installed
 - `aws-cli` : 2.6.0
 - programatic access credentials with a default profile set.
 
@@ -48,6 +51,3 @@ Here are some useful documentation resources to get up to speed.
 - https://docs.aws.amazon.com/lambda/latest/dg/lambda-python.html
 - https://docs.aws.amazon.com/lambda/latest/dg/services-codepipeline.html
 - https://boto3.amazonaws.com/v1/documentation/api/latest/guide/error-handling.html
-
-
-
