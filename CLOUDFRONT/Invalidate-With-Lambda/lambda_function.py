@@ -30,14 +30,21 @@ def lambda_handler(event, context):
         # Set path to 'None' as default.
         path = None
         
-        # Check for correct object keys.
+        # Loop through input_artifacts to validate keys.
         if data.get('UserParameters') == s3_object_createpataa:
+            
             path = s3_object_createpataa
+            print(f"🎯 The current s3 object key is set to : {path}")
+            
         elif data.get('UserParameters') == s3_object_two_stage:
+            
             path = s3_object_two_stage
-        elif path is None:
+            print(f"🎯 The current s3 object key is set to : {path}")
+        
+        # Check if a valid input artifact was found
+        if path is None:
             raise ValueError(f"No valid input artifact found in: {data}")
-
+        
         # Create Invalidation Request
         response_dict = client.create_invalidation(
             DistributionId=id,
@@ -49,9 +56,10 @@ def lambda_handler(event, context):
                 'CallerReference': str(current)
             }
         )
-
+        
+        # Returned response
         print(response_dict)
-
+        
         # Fetch current invalidation status
         get_response_dict = client.get_invalidation(
             DistributionId=id,
@@ -59,7 +67,7 @@ def lambda_handler(event, context):
         )
 
         # Confirm invalidation
-        print(f"✅Invalidation completed successfully: {get_response_dict}")
+        print(f"✅ Invalidation completed successfully: {get_response_dict}")
 
         # Get the job id of current codepipeline action.
         job_id = event.get('CodePipeline.job').get('id')
