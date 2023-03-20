@@ -2,7 +2,7 @@
 ---
 ![sample-pipeline](./four-stage-example.png)
 
-## Pre-requisites
+### Pre-requisites
 ---
 Should have the following installed at your system:
 
@@ -21,14 +21,24 @@ Should have the following installed at your system:
 
 3. Run python script using `python main.py`
 
-
 ### Steps Using Lambda Function
 ---
 1. Create a lambda function named `invalidate_s3_objects`, however you can have any name you want.
-2. Attach the role, lambda_basic_execution_role,
+2. Create a role named `Lambda_Service_role` and create a policy named `CF_Lambda_Iam_Policy` with the following services and actions:
 
-    - Modify the role to include `action: createInvalidation` on a specific distribution in your aws region.
-    - Use IAM for this.
+    - Codepipeline
+        - `PutJobSuccessResult`
+        - `PutJobFailureResult`
+    - Cloudwatch Logs
+        - `logs:CreateLogStream`
+        - `logs:CreateLogGroup`
+        - `logs:PutLogEvents`
+    - Cloudfront
+        - `cloudfront:GetInvalidation`
+        - `cloudfront:CreateInvalidation`
+
+    Once you have the role and its policy document, Add the *execution-role` at,
+    Function > invalidate_s3_objects > Configuration > Permissions > Edit > *select_your_role_name*
 
 3. Add environment variable at : Function > invalidate_s3_objects > Configuration > Environment variables
 4. Package your source code as `zip` file:
@@ -37,12 +47,12 @@ Should have the following installed at your system:
 
     *Note*: you can name the zip file with any name.
 5. Upload package.zip as zip file at invalidate_s3_objects lambda function.
-6. Test using event pattern using `s3-put` template.
+6. Test using event pattern using `codepipeline-job` template, make sure you are passing your s3 bucket object key to `UserParameters`.
 
 
 ### Resources & Documentation
 ---
-Here are some useful documentation resources to get up to speed.
+Here are some useful documentation resources to get you up to speed.
 
 - https://docs.aws.amazon.com/AmazonS3/latest/userguide/notification-content-structure.html
 - https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/cloudfront/client/create_invalidation.html
