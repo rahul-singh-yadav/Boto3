@@ -1,11 +1,9 @@
 ## Invalidate S3 Bucket Objects With Lamdba Function
 ---
-
 ![sample-pipeline](./four-stage-example.png)
 
 ## Pre-requisites
 ---
-
 Should have the following installed at your system:
 
 - Python3 version: 3.10.10
