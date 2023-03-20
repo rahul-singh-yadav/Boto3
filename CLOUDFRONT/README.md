@@ -1,7 +1,7 @@
 ## Invalidate S3 Bucket Objects With Lamdba Function
 ---
 
-./four-stage-examlple.png
+![sample-pipeline](./four-stage-example.png)
 
 ## Pre-requisites
 ---
