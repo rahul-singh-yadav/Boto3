@@ -1,0 +1,16 @@
+"{
+    rules: [
+        {
+            rulePriority: 2,
+            description:expire | imageCountMoreThan (1) | untagged,
+            selection: {
+                tagStatus:untagged,
+                countType:imageCountMoreThan,
+                countNumber: 1
+            },
+            action: {
+                type:expire
+            }
+        }
+    ]
+}"
