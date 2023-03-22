@@ -83,3 +83,21 @@ with open('./lifecycle_policy.json', "r") as policy_data:
     print(f"📁 Success! Closing file now...")
 
 policy_data.close()
+
+# Place tags across all repositories
+for tags in repositories_dict:
+    try:
+        response = client.tag_resource(
+            resourceArn='string',
+            tags=[
+                {
+                    'Key': 'Env',
+                    'Value': 'Test'
+                },
+            ]
+        )
+    except(botocore.exceptions.ClientError, Exception) as e:
+            """ Catch all exceptions and specifically for ClientError class.
+                Raise an exception if any of the above fail's.
+            """
+            print(f"⚠️ An exception was raised with following message: \n {e}")
