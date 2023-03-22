@@ -74,13 +74,20 @@ with open('./lifecycle_policy.json', "r") as policy_data:
                 lifecyclePolicyText = str(rule)
             )
 
-        except(botocore.exceptions.ClientError, Exception) as e:
-            """ Catch all exceptions and specifically for ClientError class.
-                Raise an exception if any of the above fail's.
+        except(botocore.exceptions.ClientError) as e:
+            """ Catch all exceptions for ClientError class.
             """
             print(f"⚠️ An exception was raised with following message: \n {e}")
+        except(botocore.exceptions.InvalidParameterException) as e1:
+            """ Catch all exceptions for Invalid parameters passed.
+            """
+            print(f"⚠️ An exception was raised with following message: \n {e1}")
+        except(botocore.exceptions.RepositoryNotFoundException) as e2:
+            """ Catch an exception is the repository we trying to put rules to doesn't exists.
+            """
+            print(f"⚠️ An exception was raised with following message: \n {e2}")
 
-    print(f"📁 Success! Closing file now...")
+    print(f"📁 Success! Closing file now...\n")
 
 policy_data.close()
 
@@ -96,8 +103,13 @@ for tags in repositories_dict:
                 },
             ]
         )
-    except(botocore.exceptions.ClientError, Exception) as e:
+    except(botocore.exceptions.ClientError) as e:
             """ Catch all exceptions and specifically for ClientError class.
                 Raise an exception if any of the above fail's.
             """
-            print(f"⚠️ An exception was raised with following message: \n {e}")
+            print(f"⚠️ \t An exception was raised with following message: \n {e}")
+    except(botocore.exceptions.RepositoryNotFoundException) as e1:
+            print(f"⚠️ \t An exception was raised with following message: \n {e1}")
+    except(botocore.exceptions.InvalidParameterException) as e3:
+            print(f"⚠️ \t An exception was raised with following message: \n {e3}")
+
