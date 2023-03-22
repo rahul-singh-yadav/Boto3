@@ -17,7 +17,7 @@ Allows you to do the following:
 1. Place an ecr lifecycle_policy **rule** to all your repositories based on a specific **tags** placed ecr repo.
 2. Put **multiple tags** on ecr repos based on various environments.
 3. Reduce your ecr image storage cloudspends.
-4. 
+
 
 
 **What does this doesn't do?**
@@ -25,7 +25,7 @@ Currently this script doesn't allow to do the following:
 
 1. Place multiple ecr lifecycle_policy based **rules** for now
 2. Cannot paginate for now.
-3. 
+3. Code isn't optimized yet, it lacks reusability for now.
 
 **Example Policy**:
 
