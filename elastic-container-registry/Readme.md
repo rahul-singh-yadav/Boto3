@@ -22,13 +22,28 @@ Allows you to do the following:
 
 
 **🤚 What does this doesn't do?**
+
 Currently this script doesn't allow to do the following:
 
 1. Place multiple ecr lifecycle_policy based **rules** for now
 2. Cannot paginate for now.
 3. Code isn't optimized yet, it lacks reusability for now.
 
-**Example Policy**:
+### Pre-requisites
+---
+- AWS Cli must be installed, this code is tested on v2.6.0.
+- AWS Profiles must be preconfigured.
+- Python version 3.10.10
+
+### Steps for running this script
+---
+1. Run `pip3` freeze at local machine.
+2. Run `python main.py`
+
+Note: lifecycle_policy.json must be present at cwd.
+
+### Example Policy
+---
 
 ```
 {
@@ -48,18 +63,6 @@ Currently this script doesn't allow to do the following:
     ]
 }
 ```
-### Pre-requisites
----
-- AWS Cli must be installed, this code is tested on v2.6.0.
-- AWS Profiles must be preconfigured.
-- Python version 3.10.10
-
-### Steps for running this script
----
-1. Run `pip3` freeze at local machine.
-2. Run `python main.py`
-
-Note: lifecycle_policy.json must be present at cwd.
 
 ## Refrences
 ---
