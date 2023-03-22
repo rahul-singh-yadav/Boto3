@@ -11,7 +11,8 @@
 
 ## Batch PUT Lifecycle Policy
 ---
-**What does this script do?**
+**👉 What does this script do?**
+
 Allows you to do the following:
 
 1. Place an ecr lifecycle_policy **rule** to all your repositories based on a specific **tags** placed ecr repo.
@@ -20,7 +21,7 @@ Allows you to do the following:
 
 
 
-**What does this doesn't do?**
+**🤚 What does this doesn't do?**
 Currently this script doesn't allow to do the following:
 
 1. Place multiple ecr lifecycle_policy based **rules** for now
