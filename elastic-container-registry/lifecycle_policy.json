@@ -1,16 +1,16 @@
-"{
-    rules: [
+{
+    "rules": [
         {
-            rulePriority: 2,
-            description:expire | imageCountMoreThan (1) | untagged,
-            selection: {
-                tagStatus:untagged,
-                countType:imageCountMoreThan,
-                countNumber: 1
+            "rulePriority": 1,
+            "description": "Keep only one untagged image, expire all others.",
+            "selection": {
+                "tagStatus": "untagged",
+                "countType": "imageCountMoreThan",
+                "countNumber": 1
             },
-            action: {
-                type:expire
+            "action": {
+                "type": "expire"
             }
         }
     ]
-}"
+}
