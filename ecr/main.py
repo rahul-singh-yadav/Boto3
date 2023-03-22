@@ -92,24 +92,26 @@ with open('./lifecycle_policy.json', "r") as policy_data:
 policy_data.close()
 
 # Place tags across all repositories
-for tags in repositories_dict:
+print(f"🏷️ Placing tags now on repositories... \n")
+for tag in repositories_dict:
     try:
         response = client.tag_resource(
-            resourceArn='string',
+            resourceArn = str(tag.get('repositoryArn')),
             tags=[
                 {
                     'Key': 'Env',
                     'Value': 'Test'
-                },
+                }
             ]
         )
-    except(botocore.exceptions.ClientError) as e:
-            """ Catch all exceptions and specifically for ClientError class.
-                Raise an exception if any of the above fail's.
-            """
-            print(f"⚠️ \t An exception was raised with following message: \n {e}")
-    except(botocore.exceptions.RepositoryNotFoundException) as e1:
-            print(f"⚠️ \t An exception was raised with following message: \n {e1}")
-    except(botocore.exceptions.InvalidParameterException) as e3:
-            print(f"⚠️ \t An exception was raised with following message: \n {e3}")
 
+    except(botocore.exceptions.ClientError) as e:
+            """ Catch specific exceptions and raise error messages at stdout.
+            """
+            print(f"⚠️ \t An client error exception was raised with following message: \n {e}")
+    except(botocore.exceptions.RepositoryNotFoundException) as e1:
+            print(f"⚠️ \t Repositories passed either doesn't exist or cannot be found: \n {e1}")
+    except(botocore.exceptions.InvalidParameterException) as e3:
+            print(f"⚠️ \t A parameter wasn't passed correctly to tag_resource(): \n {e3}")
+
+print(f"✅ Success! Tags successfully placed.")
