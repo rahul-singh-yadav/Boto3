@@ -40,7 +40,7 @@ with open(filepath, "a") as file:
         repository_uri = repository.get('repositoryUri')
         registry_id = repository.get('registryId')
 
-        file.write(str("\t*2") + str(f"{repository_name}, {repository_uri}") + str('\n'))
+        file.write(str("\t") + str(f"{repository_name}, {repository_uri}") + str('\n'))
 
 print(f"📁 Success! Closing file now... \n")
 
