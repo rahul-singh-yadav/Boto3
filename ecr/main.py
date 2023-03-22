@@ -111,7 +111,7 @@ for tag in repositories_dict:
             print(f"⚠️ \t An client error exception was raised with following message: \n {e}")
     except(botocore.exceptions.RepositoryNotFoundException) as e1:
             print(f"⚠️ \t Repositories passed either doesn't exist or cannot be found: \n {e1}")
-    except(botocore.exceptions.InvalidParameterException) as e3:
-            print(f"⚠️ \t A parameter wasn't passed correctly to tag_resource(): \n {e3}")
+    except(botocore.exceptions.InvalidParameterException) as e2:
+            print(f"⚠️ \t A parameter wasn't passed correctly to tag_resource(): \n {e2}")
 
 print(f"✅ Success! Tags successfully placed.")
