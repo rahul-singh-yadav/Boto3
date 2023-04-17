@@ -15,10 +15,10 @@
         },
         {
             "rulePriority": 2,
-            "description": "Keep only one image with tags: 'test', 'latest'",
+            "description": "Keep only one image with tags: 'latest'",
             "selection": {
                 "tagStatus": "tagged",
-                "tagPrefixList": ["test", "latest"],
+                "tagPrefixList": ["latest"],
                 "countType": "imageCountMoreThan",
                 "countNumber": 1
             },
