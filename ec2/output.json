@@ -1,0 +1,124 @@
+[
+    {'Groups': [], 'Instances': [
+            {'AmiLaunchIndex': 0, 'ImageId': 'ami-01216e7612243e0ef', 'InstanceId': 'i-07f193e54b5afb493', 'InstanceType': 't2.micro', 'KeyName': 'test-account-apsouth1-key', 'LaunchTime': datetime.datetime(2022,
+                11,
+                7,
+                5,
+                25,
+                15, tzinfo=tzutc()), 'Monitoring': {'State': 'disabled'
+                }, 'Placement': {'AvailabilityZone': 'ap-south-1a', 'GroupName': '', 'Tenancy': 'default'
+                }, 'PrivateDnsName': 'ip-100-50-25-10.ap-south-1.compute.internal', 'PrivateIpAddress': '100.50.25.10', 'ProductCodes': [], 'PublicDnsName': 'ec2-35-154-113-226.ap-south-1.compute.amazonaws.com', 'PublicIpAddress': '35.154.113.226', 'State': {'Code': 16, 'Name': 'running'
+                }, 'StateTransitionReason': '', 'SubnetId': 'subnet-051e84e36507baf1d', 'VpcId': 'vpc-0393705a07edeb580', 'Architecture': 'x86_64', 'BlockDeviceMappings': [
+                    {'DeviceName': '/dev/xvda', 'Ebs': {'AttachTime': datetime.datetime(2022,
+                            11,
+                            3,
+                            5,
+                            29,
+                            18, tzinfo=tzutc()), 'DeleteOnTermination': True, 'Status': 'attached', 'VolumeId': 'vol-08cc03f9013e0f6cc'
+                        }
+                    }
+                ], 'ClientToken': 'c02ba923-d443-4402-878d-435e74f29659', 'EbsOptimized': False, 'EnaSupport': True, 'Hypervisor': 'xen', 'IamInstanceProfile': {'Arn': 'arn:aws:iam: : 156010108988:instance-profile/ec2_instance_profile_role_for_ecr_poweruser', 'Id': 'AIPASIUXNLA6OCIHLLQP5'
+                }, 'NetworkInterfaces': [
+                    {'Association': {'IpOwnerId': 'amazon', 'PublicDnsName': 'ec2-35-154-113-226.ap-south-1.compute.amazonaws.com', 'PublicIp': '35.154.113.226'
+                        }, 'Attachment': {'AttachTime': datetime.datetime(2022,
+                            11,
+                            3,
+                            5,
+                            29,
+                            17, tzinfo=tzutc()), 'AttachmentId': 'eni-attach-01e9e4a8b63ba01e8', 'DeleteOnTermination': True, 'DeviceIndex': 0, 'Status': 'attached', 'NetworkCardIndex': 0
+                        }, 'Description': '', 'Groups': [
+                            {'GroupName': 'SpotFleet-SG', 'GroupId': 'sg-0606d8c8135cc7a82'
+                            }
+                        ], 'Ipv6Addresses': [], 'MacAddress': '02:b5: 25: 0a: 3d:aa', 'NetworkInterfaceId': 'eni-0e6173784249ddad8', 'OwnerId': '156010108988', 'PrivateDnsName': 'ip-100-50-25-10.ap-south-1.compute.internal', 'PrivateIpAddress': '100.50.25.10', 'PrivateIpAddresses': [
+                            {'Association': {'IpOwnerId': 'amazon', 'PublicDnsName': 'ec2-35-154-113-226.ap-south-1.compute.amazonaws.com', 'PublicIp': '35.154.113.226'
+                                }, 'Primary': True, 'PrivateDnsName': 'ip-100-50-25-10.ap-south-1.compute.internal', 'PrivateIpAddress': '100.50.25.10'
+                            }
+                        ], 'SourceDestCheck': True, 'Status': 'in-use', 'SubnetId': 'subnet-051e84e36507baf1d', 'VpcId': 'vpc-0393705a07edeb580', 'InterfaceType': 'interface'
+                    }
+                ], 'RootDeviceName': '/dev/xvda', 'RootDeviceType': 'ebs', 'SecurityGroups': [
+                    {'GroupName': 'SpotFleet-SG', 'GroupId': 'sg-0606d8c8135cc7a82'
+                    }
+                ], 'SourceDestCheck': True, 'Tags': [
+                    {'Key': 'aws:ec2launchtemplate:id', 'Value': 'lt-02131dbb166857509'
+                    },
+                    {'Key': 'Name', 'Value': 'monitoring.pataa.in (no-elastic-ip)'
+                    },
+                    {'Key': 'aws:ec2launchtemplate:version', 'Value': '3'
+                    }
+                ], 'VirtualizationType': 'hvm', 'CpuOptions': {'CoreCount': 1, 'ThreadsPerCore': 1
+                }, 'CapacityReservationSpecification': {'CapacityReservationPreference': 'open'
+                }, 'HibernationOptions': {'Configured': False
+                }, 'MetadataOptions': {'State': 'applied', 'HttpTokens': 'optional', 'HttpPutResponseHopLimit': 1, 'HttpEndpoint': 'enabled', 'HttpProtocolIpv6': 'disabled', 'InstanceMetadataTags': 'disabled'
+                }, 'EnclaveOptions': {'Enabled': False
+                }, 'PlatformDetails': 'Linux/UNIX', 'UsageOperation': 'RunInstances', 'UsageOperationUpdateTime': datetime.datetime(2022,
+                11,
+                3,
+                5,
+                29,
+                17, tzinfo=tzutc()), 'PrivateDnsNameOptions': {'HostnameType': 'ip-name', 'EnableResourceNameDnsARecord': True, 'EnableResourceNameDnsAAAARecord': False
+                }, 'MaintenanceOptions': {'AutoRecovery': 'default'
+                }, 'CurrentInstanceBootMode': 'legacy-bios'
+            }
+        ], 'OwnerId': '156010108988', 'ReservationId': 'r-09987e876a95871b8'
+    },
+    {'Groups': [], 'Instances': [
+            {'AmiLaunchIndex': 0, 'ImageId': 'ami-0cdd3e1358d21a56a', 'InstanceId': 'i-0b6bdaf26b8fb2bd7', 'InstanceType': 't3a.medium', 'KeyName': 'MagentoServerPataaAutofill', 'LaunchTime': datetime.datetime(2022,
+                12,
+                21,
+                5,
+                55,
+                7, tzinfo=tzutc()), 'Monitoring': {'State': 'disabled'
+                }, 'Placement': {'AvailabilityZone': 'ap-south-1c', 'GroupName': '', 'Tenancy': 'default'
+                }, 'PrivateDnsName': 'ip-172-31-28-236.ap-south-1.compute.internal', 'PrivateIpAddress': '172.31.28.236', 'ProductCodes': [
+                    {'ProductCodeId': '1awn1qtbqnip84l3wzct5p103', 'ProductCodeType': 'marketplace'
+                    }
+                ], 'PublicDnsName': 'ec2-3-110-144-99.ap-south-1.compute.amazonaws.com', 'PublicIpAddress': '3.110.144.99', 'State': {'Code': 16, 'Name': 'running'
+                }, 'StateTransitionReason': '', 'SubnetId': 'subnet-97d8b3ec', 'VpcId': 'vpc-0279b369', 'Architecture': 'x86_64', 'BlockDeviceMappings': [
+                    {'DeviceName': '/dev/xvda', 'Ebs': {'AttachTime': datetime.datetime(2022,
+                            12,
+                            21,
+                            5,
+                            55,
+                            7, tzinfo=tzutc()), 'DeleteOnTermination': True, 'Status': 'attached', 'VolumeId': 'vol-0ea17d7e83290bba8'
+                        }
+                    }
+                ], 'ClientToken': '1671602169253', 'EbsOptimized': True, 'EnaSupport': True, 'Hypervisor': 'xen', 'NetworkInterfaces': [
+                    {'Association': {'IpOwnerId': 'amazon', 'PublicDnsName': 'ec2-3-110-144-99.ap-south-1.compute.amazonaws.com', 'PublicIp': '3.110.144.99'
+                        }, 'Attachment': {'AttachTime': datetime.datetime(2022,
+                            12,
+                            21,
+                            5,
+                            55,
+                            7, tzinfo=tzutc()), 'AttachmentId': 'eni-attach-071c269dd2face6c2', 'DeleteOnTermination': True, 'DeviceIndex': 0, 'Status': 'attached', 'NetworkCardIndex': 0
+                        }, 'Description': '', 'Groups': [
+                            {'GroupName': 'Magento packaged by Bitnami-2.4.5-p1-21-r17 on Debian 11-AutogenByAWSMP--2', 'GroupId': 'sg-077427ea35c6f94f7'
+                            }
+                        ], 'Ipv6Addresses': [], 'MacAddress': '06:bf:d4:d7: 25:ea', 'NetworkInterfaceId': 'eni-034db54b2cda31b0a', 'OwnerId': '156010108988', 'PrivateDnsName': 'ip-172-31-28-236.ap-south-1.compute.internal', 'PrivateIpAddress': '172.31.28.236', 'PrivateIpAddresses': [
+                            {'Association': {'IpOwnerId': 'amazon', 'PublicDnsName': 'ec2-3-110-144-99.ap-south-1.compute.amazonaws.com', 'PublicIp': '3.110.144.99'
+                                }, 'Primary': True, 'PrivateDnsName': 'ip-172-31-28-236.ap-south-1.compute.internal', 'PrivateIpAddress': '172.31.28.236'
+                            }
+                        ], 'SourceDestCheck': True, 'Status': 'in-use', 'SubnetId': 'subnet-97d8b3ec', 'VpcId': 'vpc-0279b369', 'InterfaceType': 'interface'
+                    }
+                ], 'RootDeviceName': '/dev/xvda', 'RootDeviceType': 'ebs', 'SecurityGroups': [
+                    {'GroupName': 'Magento packaged by Bitnami-2.4.5-p1-21-r17 on Debian 11-AutogenByAWSMP--2', 'GroupId': 'sg-077427ea35c6f94f7'
+                    }
+                ], 'SourceDestCheck': True, 'Tags': [
+                    {'Key': 'Name', 'Value': 'Magneto Autofill Test Node'
+                    }
+                ], 'VirtualizationType': 'hvm', 'CpuOptions': {'CoreCount': 1, 'ThreadsPerCore': 2
+                }, 'CapacityReservationSpecification': {'CapacityReservationPreference': 'open'
+                }, 'HibernationOptions': {'Configured': False
+                }, 'MetadataOptions': {'State': 'applied', 'HttpTokens': 'optional', 'HttpPutResponseHopLimit': 1, 'HttpEndpoint': 'enabled', 'HttpProtocolIpv6': 'disabled', 'InstanceMetadataTags': 'disabled'
+                }, 'EnclaveOptions': {'Enabled': False
+                }, 'PlatformDetails': 'Linux/UNIX', 'UsageOperation': 'RunInstances', 'UsageOperationUpdateTime': datetime.datetime(2022,
+                12,
+                21,
+                5,
+                55,
+                7, tzinfo=tzutc()), 'PrivateDnsNameOptions': {'HostnameType': 'ip-name', 'EnableResourceNameDnsARecord': True, 'EnableResourceNameDnsAAAARecord': False
+                }, 'MaintenanceOptions': {'AutoRecovery': 'default'
+                }, 'CurrentInstanceBootMode': 'legacy-bios'
+            }
+        ], 'OwnerId': '156010108988', 'ReservationId': 'r-0e28862cef7038466'
+    }
+]
